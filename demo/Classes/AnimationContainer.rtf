@@ -1,0 +1,46 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf250
+{\fonttbl\f0\fnil\fcharset0 Futura-CondensedExtraBold;\f1\fnil\fcharset0 Monaco;\f2\fnil\fcharset0 GillSans;
+}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\b\fs48 \cf0 Animation Container Format\
+
+\f1\b0\fs20 \
+
+\f2\fs28 The animation container is a single file that contains all pixel data for an animation. The format has a standard header that defines some global properties of the animation. What follows after the header is a variable amount of Animation Images. Animation Images can be in many formats like for example raw pixel data, run-length encoded pixel data or even compressed PNG data.\
+\
+All fields are encoded in network order.\
+\
+Image Data is padded to 4 bytes to keep all headers 4-byte aligned.\
+\
+
+\f0\b\fs36 Animation Container Header\
+
+\f2\b0\fs28 \
+uint32_t		magic		all animation containers are identified with the 'anim' identifier\
+uint32_t		version		the version number of the animation container. currently 1.\
+uint32_t		width		the width of the animation\
+uint32_t		height		the height of the animation\
+uint32_t		frameRate	the frame rate of the animation\
+uint32_t		frameCount	the number of frames following the header\
+\
+
+\f0\b\fs36 Animation Image Header\
+
+\f2\b0\fs28 \
+uint32_t		width		width of the image\
+uint32_t		height		height of the image\
+uint32_t		xoffset		horizontal offset of the image\
+uint32_t		yoffset		vertical offset of the image\
+uint32_t		format		the format of the data, see table below\
+uint32_t		dataLength	the length of the data\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f0\b \cf0 Valid Image Data Types\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f2\b0 \cf0 \
+'ping'	PNG\
+'pixl'		uncompressed pixel data}
