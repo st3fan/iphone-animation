@@ -15,14 +15,11 @@
 		2899E5220DE3E06400AC0155 /* AnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* AnimationViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* AnimationViewController.m */; };
-		F80062A31100DED2008692FE /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F80062A21100DED2008692FE /* AnimationView.m */; };
-		F80062A61100DEDB008692FE /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = F80062A51100DEDB008692FE /* Animation.m */; };
-		F80062B81100E90C008692FE /* AnimationFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = F80062B71100E90C008692FE /* AnimationFrameBuffer.m */; };
-		F80062F41100F029008692FE /* AnimationImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F80062F31100F029008692FE /* AnimationImage.m */; };
 		F800632D1100FB2D008692FE /* AnimationContainer.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F800632C1100FB2D008692FE /* AnimationContainer.rtf */; };
-		F80064BE1102108E008692FE /* PNGTest.animation in Resources */ = {isa = PBXBuildFile; fileRef = F80064BD1102108E008692FE /* PNGTest.animation */; };
-		F800652611024AFF008692FE /* RawTest.animation in Resources */ = {isa = PBXBuildFile; fileRef = F800652511024AFF008692FE /* RawTest.animation */; };
-		F800659D1102669B008692FE /* RLETest.animation in Resources */ = {isa = PBXBuildFile; fileRef = F800659C1102669B008692FE /* RLETest.animation */; };
+		F8006611110277EB008692FE /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = F8006609110277EB008692FE /* Animation.m */; };
+		F8006612110277EB008692FE /* AnimationFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = F800660C110277EB008692FE /* AnimationFrameBuffer.m */; };
+		F8006613110277EB008692FE /* AnimationImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F800660E110277EB008692FE /* AnimationImage.m */; };
+		F8006614110277EB008692FE /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8006610110277EB008692FE /* AnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,19 +36,16 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Animation_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Animation-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Animation-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		F80062A11100DED2008692FE /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
-		F80062A21100DED2008692FE /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
-		F80062A41100DEDB008692FE /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
-		F80062A51100DEDB008692FE /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animation.m; sourceTree = "<group>"; };
-		F80062B61100E90C008692FE /* AnimationFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFrameBuffer.h; sourceTree = "<group>"; };
-		F80062B71100E90C008692FE /* AnimationFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFrameBuffer.m; sourceTree = "<group>"; };
-		F80062F21100F029008692FE /* AnimationImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationImage.h; sourceTree = "<group>"; };
-		F80062F31100F029008692FE /* AnimationImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationImage.m; sourceTree = "<group>"; };
-		F80062F51100F192008692FE /* AnimationCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationCommon.h; sourceTree = "<group>"; };
 		F800632C1100FB2D008692FE /* AnimationContainer.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = AnimationContainer.rtf; sourceTree = "<group>"; };
-		F80064BD1102108E008692FE /* PNGTest.animation */ = {isa = PBXFileReference; lastKnownFileType = file; path = PNGTest.animation; sourceTree = "<group>"; };
-		F800652511024AFF008692FE /* RawTest.animation */ = {isa = PBXFileReference; lastKnownFileType = file; path = RawTest.animation; sourceTree = "<group>"; };
-		F800659C1102669B008692FE /* RLETest.animation */ = {isa = PBXFileReference; lastKnownFileType = file; path = RLETest.animation; sourceTree = "<group>"; };
+		F8006608110277EB008692FE /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../src/Animation.h; sourceTree = SOURCE_ROOT; };
+		F8006609110277EB008692FE /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = ../src/Animation.m; sourceTree = SOURCE_ROOT; };
+		F800660A110277EB008692FE /* AnimationCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationCommon.h; path = ../src/AnimationCommon.h; sourceTree = SOURCE_ROOT; };
+		F800660B110277EB008692FE /* AnimationFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationFrameBuffer.h; path = ../src/AnimationFrameBuffer.h; sourceTree = SOURCE_ROOT; };
+		F800660C110277EB008692FE /* AnimationFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationFrameBuffer.m; path = ../src/AnimationFrameBuffer.m; sourceTree = SOURCE_ROOT; };
+		F800660D110277EB008692FE /* AnimationImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationImage.h; path = ../src/AnimationImage.h; sourceTree = SOURCE_ROOT; };
+		F800660E110277EB008692FE /* AnimationImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationImage.m; path = ../src/AnimationImage.m; sourceTree = SOURCE_ROOT; };
+		F800660F110277EB008692FE /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationView.h; path = ../src/AnimationView.h; sourceTree = SOURCE_ROOT; };
+		F8006610110277EB008692FE /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationView.m; path = ../src/AnimationView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,20 +65,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F80062F51100F192008692FE /* AnimationCommon.h */,
 				1D3623240D0F684500981E51 /* AnimationAppDelegate.h */,
 				1D3623250D0F684500981E51 /* AnimationAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* AnimationViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* AnimationViewController.m */,
 				2899E5210DE3E06400AC0155 /* AnimationViewController.xib */,
-				F80062A11100DED2008692FE /* AnimationView.h */,
-				F80062A21100DED2008692FE /* AnimationView.m */,
-				F80062A41100DEDB008692FE /* Animation.h */,
-				F80062A51100DEDB008692FE /* Animation.m */,
-				F80062B61100E90C008692FE /* AnimationFrameBuffer.h */,
-				F80062B71100E90C008692FE /* AnimationFrameBuffer.m */,
-				F80062F21100F029008692FE /* AnimationImage.h */,
-				F80062F31100F029008692FE /* AnimationImage.m */,
 				F800632C1100FB2D008692FE /* AnimationContainer.rtf */,
 			);
 			path = Classes;
@@ -101,6 +86,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F8006604110277DD008692FE /* Animation Framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -122,9 +108,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F80064BD1102108E008692FE /* PNGTest.animation */,
-				F800652511024AFF008692FE /* RawTest.animation */,
-				F800659C1102669B008692FE /* RLETest.animation */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Animation-Info.plist */,
 			);
@@ -139,6 +122,22 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8006604110277DD008692FE /* Animation Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F8006608110277EB008692FE /* Animation.h */,
+				F8006609110277EB008692FE /* Animation.m */,
+				F800660A110277EB008692FE /* AnimationCommon.h */,
+				F800660B110277EB008692FE /* AnimationFrameBuffer.h */,
+				F800660C110277EB008692FE /* AnimationFrameBuffer.m */,
+				F800660D110277EB008692FE /* AnimationImage.h */,
+				F800660E110277EB008692FE /* AnimationImage.m */,
+				F800660F110277EB008692FE /* AnimationView.h */,
+				F8006610110277EB008692FE /* AnimationView.m */,
+			);
+			name = "Animation Framework";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +185,6 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* AnimationViewController.xib in Resources */,
 				F800632D1100FB2D008692FE /* AnimationContainer.rtf in Resources */,
-				F80064BE1102108E008692FE /* PNGTest.animation in Resources */,
-				F800652611024AFF008692FE /* RawTest.animation in Resources */,
-				F800659D1102669B008692FE /* RLETest.animation in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,10 +198,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AnimationAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* AnimationViewController.m in Sources */,
-				F80062A31100DED2008692FE /* AnimationView.m in Sources */,
-				F80062A61100DEDB008692FE /* Animation.m in Sources */,
-				F80062B81100E90C008692FE /* AnimationFrameBuffer.m in Sources */,
-				F80062F41100F029008692FE /* AnimationImage.m in Sources */,
+				F8006611110277EB008692FE /* Animation.m in Sources */,
+				F8006612110277EB008692FE /* AnimationFrameBuffer.m in Sources */,
+				F8006613110277EB008692FE /* AnimationImage.m in Sources */,
+				F8006614110277EB008692FE /* AnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

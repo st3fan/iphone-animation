@@ -271,6 +271,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>F8006604110277DD008692FE</string>
 								<string>080E96DDFE201D6D7F000001</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
@@ -279,8 +280,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>2</integer>
-									<integer>1</integer>
+									<integer>21</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -302,7 +302,7 @@
 							<real>246</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>1 54 1440 824 0 0 1440 878 </string>
+						<string>0 54 1440 824 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -327,29 +327,16 @@
 										<string>F80062C11100ED35008692FE</string>
 										<key>PBXProjectModuleLabel</key>
 										<string>AnimationCommon.h</string>
-										<key>_historyCapacity</key>
-										<integer>0</integer>
-										<key>bookmark</key>
-										<string>F80065FB11027270008692FE</string>
 										<key>history</key>
 										<array>
 											<string>F80064B611020EC8008692FE</string>
 											<string>F80065EB11027270008692FE</string>
 											<string>F80065EC11027270008692FE</string>
 											<string>F80065ED11027270008692FE</string>
-											<string>F80065EE11027270008692FE</string>
-											<string>F80065EF11027270008692FE</string>
-											<string>F80065F011027270008692FE</string>
-											<string>F80065F111027270008692FE</string>
-											<string>F80065F211027270008692FE</string>
-											<string>F80065F311027270008692FE</string>
-											<string>F80065F411027270008692FE</string>
-											<string>F80065F511027270008692FE</string>
 											<string>F80065F611027270008692FE</string>
 											<string>F80065F711027270008692FE</string>
 											<string>F80065F811027270008692FE</string>
 											<string>F80065F911027270008692FE</string>
-											<string>F80065FA11027270008692FE</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -363,18 +350,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1172, 626}}</string>
+								<string>{{0, 0}, {1172, 622}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1 54 1440 824 0 0 1440 878 </string>
+								<string>0 54 1440 824 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>626pt</string>
+							<string>622pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>152pt</string>
+							<string>156pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -388,9 +375,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1172, 125}}</string>
+										<string>{{10, 27}, {1172, 129}}</string>
 										<key>RubberWindowFrame</key>
-										<string>1 54 1440 824 0 0 1440 878 </string>
+										<string>0 54 1440 824 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -406,7 +393,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1652, -27}}</string>
+										<string>{{0, 0}, {614, 336}}</string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -472,11 +459,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F80062CC1100ED35008692FE</string>
+				<string>F8006605110277E2008692FE</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>F80062CD1100ED35008692FE</string>
+				<string>F8006606110277E2008692FE</string>
 				<string>F80062C01100ED35008692FE</string>
-				<string>F80062CE1100ED35008692FE</string>
+				<string>F8006607110277E2008692FE</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -667,12 +654,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>F8006411110166A4008692FE</string>
-		<string>F8006412110166A4008692FE</string>
-		<string>/Users/stefan/Desktop/Animation/Animation.xcodeproj</string>
+		<string>/Users/stefan/Desktop/iphone-animation/demo/Animation.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>1 54 1440 824 0 0 1440 878 </string>
+	<string>0 54 1440 824 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

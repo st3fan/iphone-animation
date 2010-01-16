@@ -93,28 +93,18 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 285269632;
-			PBXWorkspaceStateSaveDate = 285269632;
+			PBXPerProjectTemplateStateSaveDate = 285374416;
+			PBXWorkspaceStateSaveDate = 285374416;
 		};
 		perUserProjectItems = {
 			F80064B611020EC8008692FE /* PlistBookmark */ = F80064B611020EC8008692FE /* PlistBookmark */;
 			F80065EB11027270008692FE /* PBXTextBookmark */ = F80065EB11027270008692FE /* PBXTextBookmark */;
 			F80065EC11027270008692FE /* PBXTextBookmark */ = F80065EC11027270008692FE /* PBXTextBookmark */;
 			F80065ED11027270008692FE /* PBXTextBookmark */ = F80065ED11027270008692FE /* PBXTextBookmark */;
-			F80065EE11027270008692FE /* PBXTextBookmark */ = F80065EE11027270008692FE /* PBXTextBookmark */;
-			F80065EF11027270008692FE /* PBXTextBookmark */ = F80065EF11027270008692FE /* PBXTextBookmark */;
-			F80065F011027270008692FE /* PBXTextBookmark */ = F80065F011027270008692FE /* PBXTextBookmark */;
-			F80065F111027270008692FE /* PBXTextBookmark */ = F80065F111027270008692FE /* PBXTextBookmark */;
-			F80065F211027270008692FE /* PBXTextBookmark */ = F80065F211027270008692FE /* PBXTextBookmark */;
-			F80065F311027270008692FE /* PBXTextBookmark */ = F80065F311027270008692FE /* PBXTextBookmark */;
-			F80065F411027270008692FE /* PBXTextBookmark */ = F80065F411027270008692FE /* PBXTextBookmark */;
-			F80065F511027270008692FE /* PBXTextBookmark */ = F80065F511027270008692FE /* PBXTextBookmark */;
 			F80065F611027270008692FE /* PBXTextBookmark */ = F80065F611027270008692FE /* PBXTextBookmark */;
 			F80065F711027270008692FE /* PBXTextBookmark */ = F80065F711027270008692FE /* PBXTextBookmark */;
 			F80065F811027270008692FE /* PBXTextBookmark */ = F80065F811027270008692FE /* PBXTextBookmark */;
 			F80065F911027270008692FE /* PBXTextBookmark */ = F80065F911027270008692FE /* PBXTextBookmark */;
-			F80065FA11027270008692FE /* PBXTextBookmark */ = F80065FA11027270008692FE /* PBXTextBookmark */;
-			F80065FB11027270008692FE /* PBXTextBookmark */ = F80065FB11027270008692FE /* PBXTextBookmark */;
 		};
 		sourceControlManager = F800629E1100DE9F008692FE /* Source Control */;
 		userBuildSettings = {
@@ -181,69 +171,6 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	F80062A11100DED2008692FE /* AnimationView.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 594}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1298}";
-		};
-	};
-	F80062A21100DED2008692FE /* AnimationView.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 1274}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1458}";
-		};
-	};
-	F80062A41100DEDB008692FE /* Animation.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 594}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1372}";
-		};
-	};
-	F80062A51100DEDB008692FE /* Animation.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1026, 2587}}";
-			sepNavSelRange = "{1883, 0}";
-			sepNavVisRange = "{800, 1000}";
-		};
-	};
-	F80062B61100E90C008692FE /* AnimationFrameBuffer.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 594}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1286}";
-		};
-	};
-	F80062B71100E90C008692FE /* AnimationFrameBuffer.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 650}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1398}";
-		};
-	};
-	F80062F21100F029008692FE /* AnimationImage.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 594}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1467}";
-		};
-	};
-	F80062F31100F029008692FE /* AnimationImage.m */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 780}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1414}";
-		};
-	};
-	F80062F51100F192008692FE /* AnimationCommon.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1111, 728}}";
-			sepNavSelRange = "{866, 0}";
-			sepNavVisRange = "{0, 1501}";
-		};
-	};
 	F800632C1100FB2D008692FE /* AnimationContainer.rtf */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1605, 1061}}";
@@ -261,7 +188,7 @@
 		);
 		name = "/Users/stefan/Desktop/Animation/Animation-Info.plist";
 		rLen = 0;
-		rLoc = 9223372036854775807;
+		rLoc = 9223372036854775808;
 	};
 	F80065EB11027270008692FE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -291,86 +218,6 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 1296;
-		vrLoc = 0;
-	};
-	F80065EE11027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062A11100DED2008692FE /* AnimationView.h */;
-		name = "AnimationView.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1298;
-		vrLoc = 0;
-	};
-	F80065EF11027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062A21100DED2008692FE /* AnimationView.m */;
-		name = "AnimationView.m: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1458;
-		vrLoc = 0;
-	};
-	F80065F011027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062A41100DEDB008692FE /* Animation.h */;
-		name = "Animation.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1372;
-		vrLoc = 0;
-	};
-	F80065F111027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062A51100DEDB008692FE /* Animation.m */;
-		name = "Animation.m: 8";
-		rLen = 0;
-		rLoc = 362;
-		rType = 0;
-		vrLen = 1528;
-		vrLoc = 0;
-	};
-	F80065F211027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062B61100E90C008692FE /* AnimationFrameBuffer.h */;
-		name = "AnimationFrameBuffer.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1286;
-		vrLoc = 0;
-	};
-	F80065F311027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062B71100E90C008692FE /* AnimationFrameBuffer.m */;
-		name = "AnimationFrameBuffer.m: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1398;
-		vrLoc = 0;
-	};
-	F80065F411027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062F21100F029008692FE /* AnimationImage.h */;
-		name = "AnimationImage.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1467;
-		vrLoc = 0;
-	};
-	F80065F511027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062F31100F029008692FE /* AnimationImage.m */;
-		name = "AnimationImage.m: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1414;
 		vrLoc = 0;
 	};
 	F80065F611027270008692FE /* PBXTextBookmark */ = {
@@ -411,26 +258,6 @@
 		rLoc = 866;
 		rType = 0;
 		vrLen = 1206;
-		vrLoc = 0;
-	};
-	F80065FA11027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062F51100F192008692FE /* AnimationCommon.h */;
-		name = "AnimationCommon.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1501;
-		vrLoc = 0;
-	};
-	F80065FB11027270008692FE /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F80062F51100F192008692FE /* AnimationCommon.h */;
-		name = "AnimationCommon.h: 19";
-		rLen = 0;
-		rLoc = 866;
-		rType = 0;
-		vrLen = 1501;
 		vrLoc = 0;
 	};
 }
