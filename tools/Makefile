@@ -20,10 +20,10 @@
 all: rle raw
 
 rle: rle.cc
-	c++ -framework ApplicationServices -o rle rle.cc
+	c++ -g -framework ApplicationServices -o rle rle.cc
 
 raw: raw.cc
-	c++ -framework ApplicationServices -o raw raw.cc
+	c++ -g -framework ApplicationServices -o raw raw.cc
 
 clean:
 	rm -f raw rle
