@@ -29,9 +29,6 @@
 	int frame_;
 	float framesPerSecond_;
 	AnimationFrameBuffer* frameBuffer_;
-//  @private
-//	CGDataProviderRef provider_;
-//	CGImageRef image_;
 }
 
 @property (nonatomic,retain) Animation* animation;

@@ -20,6 +20,8 @@
 #import "Animation.h"
 #import "AnimationImage.h"
 
+// TODO: Move this to a seperate file
+
 void RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
 {
     for (int channel = 0; channel < 4; channel++)
@@ -156,27 +158,19 @@ void RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int coun
 			case AnimationContainerImageFormatUncompressedPixels:
 			{
 				if (animationImage.width == buffer.width && animationImage.height == buffer.height) {
-					uint32_t* src = (uint32_t*) [animationImage.data bytes];
-					uint32_t* dst = buffer.pixels;
-					for (unsigned int i = 0; i < 480*320; i++) {
-						*dst++ = *src++;
-					}
-					//memcpy(buffer.pixels, [animationImage.data bytes],[animationImage.data length]);
+					memcpy(buffer.pixels, [animationImage.data bytes],[animationImage.data length]);
 				}
 				break;
 			}
 			
 			case AnimationContainerImageFormatRunLengthCompressedPixels:
 			{
-				if (animationImage.width == buffer.width && animationImage.height == buffer.height) {
-					RLEUncompressRGBA((unsigned char*) buffer.pixels, (unsigned char*) [animationImage.data bytes],
-						animationImage.width * animationImage.height);
+				if (animationImage.width <= buffer.width && animationImage.height <= buffer.height) {
+					RLEUncompressRGBA((unsigned char*) buffer.pixels, (unsigned char*) [animationImage.data bytes], animationImage.width * animationImage.height);
 				}
-			
 				break;
 			}
 		}
-	
 	}
 }
 

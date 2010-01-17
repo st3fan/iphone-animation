@@ -55,6 +55,16 @@
 	return header_->height;
 }
 
+- (NSUInteger) xoffset
+{
+	return header_->xoffset;
+}
+
+- (NSUInteger) yoffset
+{
+	return header_->yoffset;
+}
+
 - (AnimationContainerImageFormat) format
 {
 	return header_->format;

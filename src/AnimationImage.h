@@ -28,6 +28,8 @@
 
 @property (nonatomic,readonly) NSUInteger width;
 @property (nonatomic,readonly) NSUInteger height;
+@property (nonatomic,readonly) NSUInteger xoffset;
+@property (nonatomic,readonly) NSUInteger yoffset;
 @property (nonatomic,readonly) AnimationContainerImageFormat format;
 @property (nonatomic,readonly) NSData* data;
 

@@ -43,6 +43,7 @@
 {
 	if (pixels_ != NULL) {
 		free(pixels_);
+		pixels_ = NULL;
 	}
 	[super dealloc];
 }

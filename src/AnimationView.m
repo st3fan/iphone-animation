@@ -54,13 +54,15 @@
 		frame_ = 0;
 	}
 
+	// TODO: There must be a much better way to do this.
+
 	CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, (const void*) frameBuffer_.pixels, self.frame.size.width*self.frame.size.height*4, NULL);
 	if (provider != NULL)
 	{
 		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 		if (colorSpace != NULL)
 		{
-			CGImageRef image = CGImageCreate(self.frame.size.width, self.frame.size.height, 8, 32, 4 * self.frame.size.width, colorSpace, kCGImageAlphaNoneSkipLast, provider, NULL, NO, kCGRenderingIntentDefault);
+			CGImageRef image = CGImageCreate(self.frame.size.width, self.frame.size.height, 8, 32, 4 * self.frame.size.width, colorSpace, kCGImageAlphaPremultipliedLast, /*kCGImageAlphaNoneSkipLast,*/ provider, NULL, NO, kCGRenderingIntentDefault);
 			if (image != NULL)
 			{
 				imageView_.image = [UIImage imageWithCGImage: image];		

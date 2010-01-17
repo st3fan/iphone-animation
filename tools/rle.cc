@@ -26,9 +26,52 @@
 #include <ApplicationServices/ApplicationServices.h>
 #include "../src/AnimationCommon.h"
 
+#if 0
+void GetCropBox(uint32_t* buffer, int width, int height, int& top, int& left, int& bottom, int& right)
+{
+    top = left = bottom = right = -1;
+
+    for (int y = 0, done = 0; y < height && done == 0; y++) {
+        for (int x = 0; x < width && done == 0; x++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                top = y;
+            }
+        }
+    }
+    
+    for (int x = 0, done = 0; x < width && done == 0; x++) {
+        for (int y = 0; y < height && done == 0; y++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                left = x;
+            }
+        }
+    }
+
+    for (int y = height-1, done = 0; y >= 0 && done == 0; y--) {
+        for (int x = 0; x < width && done == 0; x++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                bottom = y;
+            }
+        }
+    }
+    
+    for (int x = width - 1, done = 0; x >= 0 && done == 0; x--) {
+        for (int y = 0; y < height && done == 0; y++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                right = x;
+            }
+        }
+    }
+}
+#endif
+
 static inline unsigned int RLEWriteRun(unsigned char*& dst, unsigned short n, unsigned char c)
 {
-    //printf("Writing a run of %d x %x\n", n, c);
+    //printf("  Writing a run of %d x %x\n", n, c);
 
     if (n <= 127) {
         //printf("RLEWriteRun.1 Writing 0 = %x\n", n);
@@ -37,6 +80,7 @@ static inline unsigned int RLEWriteRun(unsigned char*& dst, unsigned short n, un
         *dst++ = c;
         return 2;
     } else if (n <= 32767) {
+        //printf("RLEWriteRun.2 n = %d\n", n);
         //printf("RLEWriteRun.2 Writing 0 = %x\n", ((n & 0xff00) >> 8) | 0x80);
         //printf("RLEWriteRun.2 Writing 1 = %x\n", ((n & 0x00ff) >> 0));
         //printf("RLEWriteRun.2 Writing c = %x\n", c);
@@ -53,35 +97,39 @@ static inline unsigned int RLEWriteRun(unsigned char*& dst, unsigned short n, un
 
 unsigned int RLECompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
 {
-    printf("Compressing RGBA pixel data with %d pixels\n", count);
+    //printf("Compressing RGBA pixel data with %d pixels\n", count);
 
     unsigned int compressedLength = 0;
 
     for (int channel = 0; channel < 4; channel++)
     {
+        //printf("Compressing channel %d\n", channel);
+
         unsigned char* p = src + channel;
         unsigned char c;
         unsigned short n = 0;
 
         for (int i = 0; i < count; i++, p += 4)
         {
+            //printf("   Looking at %.2x\n", *p);
+
             if (n == 0) {
-                //fprintf(stderr, "Starting a new run: n = 0 c = %d\n", c);
+                //fprintf(stderr, "      Starting a new run: n = 1 c = %d\n", c);
                 c = *p;
-                n++;
+                n = 1;
             } else {
                 if (*p == c) {
                     n++;
-                    //fprintf(stderr, "More of the same: n = %d c = %d\n", n, c);
+                    //fprintf(stderr, "      More of the same: n = %d c = %d\n", n, c);
                     if (n == 32767) {
                         compressedLength += RLEWriteRun(dst, n, c);
                         n = 0;
                     }
                 } else {
-                    //fprintf(stderr, "Run changed, writing run: n = %d c = %d\n", n, c);
-                    n++;
+                    //fprintf(stderr, "      Run changed, writing run: n = %d c = %d\n", n, c);
                     compressedLength += RLEWriteRun(dst, n, c);
-                    n = 0;
+                    c = *p;
+                    n = 1;
                 }
             }
         }
@@ -92,6 +140,38 @@ unsigned int RLECompressRGBA(unsigned char* dst, unsigned char* src, unsigned in
     }
 
     return compressedLength;
+}
+
+unsigned int RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
+{
+    unsigned int length = 0;
+
+    for (int channel = 0; channel < 4; channel++)
+    {
+        unsigned char* p = dst + channel;
+    
+        unsigned int t = count;
+        while (t != 0)
+        {
+            unsigned short n = *src++;
+            if (n & 0x80) {
+                n = (n & 0x7f) << 8;
+                n |= *src++;
+            }
+            
+            unsigned char c = *src++;
+            
+            for (int i = 0; i < n; i++) {
+                *p = c;
+                p += 4;
+                length++;
+            }
+            
+            t -= n;
+        }
+    }
+    
+    return length;
 }
 
 int main(int argc, char** argv)
@@ -108,7 +188,7 @@ int main(int argc, char** argv)
     {
         // Create a buffer for the images
 
-        unsigned char* buffer = (unsigned char*) calloc(1, width * height * 4);
+        uint32_t* buffer = (uint32_t*) calloc(width * height, sizeof(uint32_t));
 
         // Write the container header
 
@@ -127,9 +207,12 @@ int main(int argc, char** argv)
         for (int i = 4; i < argc; i++)
         {
             char* path = argv[i];
-
+            printf("Processing %s\n", path);
+            
             // Uncompress the image
 
+            memset(buffer, 0x00, width * height * sizeof(uint32_t));
+            
             CGDataProviderRef provider = CGDataProviderCreateWithFilename(path);
             if (provider != NULL)
             {
@@ -170,9 +253,39 @@ int main(int argc, char** argv)
 
             // Compress the buffer
             
-            unsigned char* compressedBuffer = (unsigned char*) malloc(width * height * 4 * 3);
-            uint32_t compressedLength = RLECompressRGBA(compressedBuffer, buffer, width * height);
+            unsigned char* compressedBuffer = (unsigned char*) malloc(width * height * sizeof(uint32_t) * 3);
+            if (compressedBuffer == NULL) {
+                printf("Can't allocate memory\n");
+                exit(1);
+            }
+
+            uint32_t compressedLength = RLECompressRGBA(compressedBuffer, (unsigned char*) buffer, width * height);
+            printf("Compressed length = %d\n", compressedLength);
+
+#if 1
+            // Sanity check
+
+            unsigned char* uncompressedBuffer = (unsigned char*) malloc(width * height * sizeof(uint32_t));
+            if (uncompressedBuffer == NULL) {
+                printf("Can't allocate memory\n");
+                exit(1);
+            }
+
+            uint32_t uncompressedLength = RLEUncompressRGBA(uncompressedBuffer, (unsigned char*) compressedBuffer,
+                width * height);
+            printf("Uncompressed length = %d\n", uncompressedLength);
             
+            if (uncompressedLength != (width * height * sizeof(uint32_t))) {
+                printf("Decompression fail. Data length not equal to original.\n");
+                exit(1);
+            }
+
+            if (memcmp(buffer, uncompressedBuffer, width * height * sizeof(uint32_t)) != 0) {
+                printf("Decompression fail. Buffers are not equal!\n");
+                exit(1);
+            }
+#endif
+       
             // Write the image header
             
             AnimationContainerImageHeader imageHeader;
@@ -200,142 +313,3 @@ int main(int argc, char** argv)
         close(fd);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#if 0
-
-#include <stdio.h>
-
-#include "rle.h"
-
-static inline unsigned int RLEWriteRun(unsigned char*& dst, unsigned short n, unsigned char c)
-{
-    printf("Writing a run of %d x %x\n", n, c);
-
-    if (n <= 127) {
-        //printf("RLEWriteRun.1 Writing 0 = %x\n", n);
-        //printf("RLEWriteRun.1 Writing c = %x\n", c);
-        *dst++ = n;
-        *dst++ = c;
-        return 2;
-    } else if (n <= 32767) {
-        //printf("RLEWriteRun.2 Writing 0 = %x\n", ((n & 0xff00) >> 8) | 0x80);
-        //printf("RLEWriteRun.2 Writing 1 = %x\n", ((n & 0x00ff) >> 0));
-        //printf("RLEWriteRun.2 Writing c = %x\n", c);
-        *dst++ = ((n & 0xff00) >> 8) | 0x80;
-        *dst++ = ((n & 0x00ff) >> 0);
-        *dst++ = c;
-        return 3;
-    } else {
-        fprintf(stderr, "Fail\n");
-    }
-
-    return 0;
-}
-
-unsigned int RLECompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
-{
-    printf("Compressing RGBA pixel data with %d pixels\n", count);
-
-    unsigned int compressedLength = 0;
-
-    for (int channel = 0; channel < 4; channel++)
-    {
-        unsigned char* p = src + channel;
-        unsigned char c;
-        unsigned short n = 0;
-
-        for (int i = 0; i < count; i++, p += 4)
-        {
-            if (n == 0) {
-                //fprintf(stderr, "Starting a new run: n = 0 c = %d\n", c);
-                c = *p;
-                n++;
-            } else {
-                if (*p == c) {
-                    n++;
-                    //fprintf(stderr, "More of the same: n = %d c = %d\n", n, c);
-                    if (n == 32767) {
-                        compressedLength += RLEWriteRun(dst, n, c);
-                        n = 0;
-                    }
-                } else {
-                    //fprintf(stderr, "Run changed, writing run: n = %d c = %d\n", n, c);
-                    n++;
-                    compressedLength += RLEWriteRun(dst, n, c);
-                    n = 0;
-                }
-            }
-        }
-        
-        if (n != 0) {
-            compressedLength += RLEWriteRun(dst, n, c);
-        }
-    }
-
-    return compressedLength;
-}
-
-unsigned int total = 0;
-
-void RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
-{
-    for (int channel = 0; channel < 4; channel++)
-    {
-        printf("Channel = %d\n", channel);
-
-        unsigned char* p = dst + channel;
-    
-        unsigned int t = count;
-        while (t != 0)
-        {
-            unsigned short n = *src++;
-            if (n & 0x80) {
-                n = (n & 0x7f) << 8;
-                n |= *src++;
-            }
-            
-            unsigned char c = *src++;
-            
-            printf("Got a run of %d x %x\n", n, c);
-            
-            for (int i = 0; i < n; i++) {
-                total += 1;
-                *p = c;
-                p += 4;
-            }
-            
-            t -= n;
-            
-            //printf(" count = %d\n", t);
-        }
-    }
-
-    printf("Total uncompressed written: %u\n", total);
-}
-
-#endif

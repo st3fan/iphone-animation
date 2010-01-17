@@ -26,6 +26,47 @@
 #include <ApplicationServices/ApplicationServices.h>
 #include "../src/AnimationCommon.h"
 
+void GetCropBox(uint32_t* buffer, int width, int height, int& top, int& left, int& bottom, int& right)
+{
+    top = left = bottom = right = -1;
+
+    for (int y = 0, done = 0; y < height && done == 0; y++) {
+        for (int x = 0; x < width && done == 0; x++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                top = y;
+            }
+        }
+    }
+    
+    for (int x = 0, done = 0; x < width && done == 0; x++) {
+        for (int y = 0; y < height && done == 0; y++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                left = x;
+            }
+        }
+    }
+
+    for (int y = height-1, done = 0; y >= 0 && done == 0; y--) {
+        for (int x = 0; x < width && done == 0; x++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                bottom = y;
+            }
+        }
+    }
+    
+    for (int x = width - 1, done = 0; x >= 0 && done == 0; x--) {
+        for (int y = 0; y < height && done == 0; y++) {
+            if (buffer[(y * width) + x] != 0) {
+                done = 1;
+                right = x;
+            }
+        }
+    }
+}
+
 int main(int argc, char** argv)
 {
     // Parse command line arguments
@@ -35,12 +76,12 @@ int main(int argc, char** argv)
 
     // Create the animation container
 
-    int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC);
+    int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd != -1)
     {
         // Create a buffer for the images
 
-        unsigned char* buffer = (unsigned char*) calloc(1, width * height * 4);
+        uint32_t* buffer = (uint32_t*) calloc( width * height, sizeof(uint32_t));
 
         // Write the container header
 
@@ -73,6 +114,8 @@ int main(int argc, char** argv)
             write(fd, &imageHeader, sizeof(imageHeader));
 
             // Uncompress the image
+
+            memset(buffer, 0x00, width * height * sizeof(uint32_t));
 
             CGDataProviderRef provider = CGDataProviderCreateWithFilename(path);
             if (provider != NULL)
@@ -112,9 +155,30 @@ int main(int argc, char** argv)
                 CFRelease(provider);
             }
 
-            // Write the image data
+            // Crop the image
 
-            write(fd, buffer, width * height * 4);
+            int top, left, bottom, right;
+            GetCropBox(buffer, width, height, top, left, bottom, right);
+            
+            int croppedWidth = right - left;
+            int croppedHeight = bottom - top;
+
+            uint32_t* croppedBuffer = (uint32_t*) calloc(width * height, sizeof(uint32_t));
+            if (croppedBuffer != NULL)
+            {
+                uint32_t* p = croppedBuffer;
+                for (int y = top; y <= bottom; y++) {
+                    for (int x = left; x <= right; x++) {
+                        *p++ = buffer[(y * width) + x];
+                    }
+                }
+
+                // Write the image data
+                write(fd, croppedBuffer, croppedWidth * croppedHeight * sizeof(uint32_t));
+
+                free(croppedBuffer);
+            }
+
         }
 
         close(fd);
