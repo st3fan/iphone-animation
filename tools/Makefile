@@ -19,8 +19,8 @@
 
 all: rle raw
 
-rle: rle.cc
-	c++ -g -framework ApplicationServices -o rle rle.cc
+rle: rle.cc ../src/AnimationCompression.c
+	c++ -g -framework ApplicationServices -o rle rle.cc ../src/AnimationCompression.c
 
 raw: raw.cc
 	c++ -g -framework ApplicationServices -o raw raw.cc
