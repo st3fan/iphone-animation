@@ -23,5 +23,6 @@
 #include <stdint.h>
 
 void AnimationDecompressRunLengthEncodedPixels(uint32_t* dst, uint32_t* src, uint32_t count);
+uint32_t AnimationCompressRunLengthEncodedPixels(uint32_t* dst, uint32_t* src, unsigned int count);
 
 #endif

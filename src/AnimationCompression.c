@@ -33,3 +33,32 @@ void AnimationDecompressRunLengthEncodedPixels(uint32_t* dst, uint32_t* src, uin
 	}
 }
 
+uint32_t AnimationCompressRunLengthEncodedPixels(uint32_t* dst, uint32_t* src, unsigned int count)
+{
+    unsigned int compressedLength = 0;
+
+    uint32_t c;
+    uint32_t n = 0;
+    
+    for (int i = 0; i < count; i++, src++)
+    {
+        if (n == 0) {
+            c = *src;
+            n = 1;
+        } else {
+            if (*src == c) {
+                n++;
+            } else {
+				*dst++ = n; *dst++ = c; compressedLength += 2;
+                c = *src;
+                n = 1;
+            }
+        }
+    }
+    
+    if (n != 0) {
+		*dst++ = n; *dst++ = c; compressedLength += 2;
+    }
+    
+    return compressedLength * 4;
+}
