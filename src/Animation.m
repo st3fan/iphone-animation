@@ -19,35 +19,7 @@
 
 #import "Animation.h"
 #import "AnimationImage.h"
-
-// TODO: Move this to a seperate file
-
-void RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int count)
-{
-    for (int channel = 0; channel < 4; channel++)
-    {
-        unsigned char* p = dst + channel;
-    
-        unsigned int t = count;
-        while (t != 0)
-        {
-            unsigned short n = *src++;
-            if (n & 0x80) {
-                n = (n & 0x7f) << 8;
-                n |= *src++;
-            }
-            
-            unsigned char c = *src++;
-            
-            for (int i = 0; i < n; i++) {
-                *p = c;
-                p += 4;
-            }
-            
-            t -= n;
-        }
-    }
-}
+#import "AnimationCompression.h"
 
 @implementation Animation
 
@@ -166,7 +138,7 @@ void RLEUncompressRGBA(unsigned char* dst, unsigned char* src, unsigned int coun
 			case AnimationContainerImageFormatRunLengthCompressedPixels:
 			{
 				if (animationImage.width <= buffer.width && animationImage.height <= buffer.height) {
-					RLEUncompressRGBA((unsigned char*) buffer.pixels, (unsigned char*) [animationImage.data bytes], animationImage.width * animationImage.height);
+					AnimationDecompressRunLengthEncodedPixels(buffer.pixels, (uint32_t*) [animationImage.data bytes], animationImage.width * animationImage.height);
 				}
 				break;
 			}
